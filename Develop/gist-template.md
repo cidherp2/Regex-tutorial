@@ -1,13 +1,17 @@
 # Regex tutorial E-mail validation
 
-As web developers is really important to handle account creation in a correct manner, and this includes validating that the e-mails given by the user are formatted correctly, to ensure the correct functionality of our web apps.
+As web developers, it is crucial to handle account creation correctly, including validating user-provided emails to ensure the proper functionality of our web apps.
 
 ## Summary
 
-the regex that'll be used is the following one:
- /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-This expression helps us validate, that the user is writing a valid e mail, this tutotial will explain how each part of the regex works and what it means so yo can use it in your code if necessary.
+The regex used for email validation is:
 
+### regex
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+###
+
+This tutorial will explain each part of the regex and its meaning so you can use it in your code if necessary.
 
 ## Table of Contents
 
@@ -22,44 +26,57 @@ This expression helps us validate, that the user is writing a valid e mail, this
 - [Boundaries](#boundaries)
 - [Back-references](#back-references)
 - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+- [Author](#author)
 
 ## Regex Components
 
 ### Anchors
-The anchors for this regex are the following
- ^ This anchor shows is the start of the expression
- $ This anchor shows us that it is the end of the expression 
+The anchors for this regex are:
+- `^`: Start of the expression
+- `$`: End of the expression
 
 ### Quantifiers
-Quantifiers specify how many times the previous character or group should be matched
-' + ' Matches the preceding items one or more times, in this case defines that the next part is part of the regex
-' {2,6} Matches the preceding item between 2 and 6 times.
+Quantifiers specify how many times the previous character or group should be matched.
+- `+`: Matches the preceding items one or more times.
+- `{2,6}`: Matches the preceding item between 2 and 6 times.
 
 ### OR Operator
-The || or operator isnt present in this regex.
+The OR operator (`||`) isn't present in this regex.
+
 ### Character Classes
-A character class is a set of characters that can match any character in the input string given, in this particular regex we have 3 character classes
-
-[a-z0-9_\.-]+) @ - The username in the email, the class tells it it's a string that can contain any lower case character from a to z any digit from 0 to 9, underscore, dot or hyphen. It must contain an '@' after 
-
-[\da-z\.-]+ /. -This is for the domain and it goes after the @ it validates that this string contains any digit, any lowercase letter, dot or hyphen. it also validates that is followed by a single dot
-
-[a-z\.]{2,6} Matches any lowercase letter or dot that appears between 2 to 6 times.
+A character class is a set of characters that can match any character in the input string. This regex has 3 character classes:
+1. `[a-z0-9_\.-]+)@`: Username in the email, allowing lowercase letters, digits, underscores, dots, or hyphens.
+2. `[\da-z\.-]+`: Domain after the '@', allowing digits, lowercase letters, dots, or hyphens. It must be followed by a single dot.
+3. `[a-z\.]{2,6}`: Matches lowercase letters or dots in the TLD between 2 and 6 times.
 
 ### Flags
+No flags are used in this regex.
 
 ### Grouping and Capturing
-We group through expressions and through parentheses in this case we group wit +) @ after the username and +). after the domain example ".com" 
+Grouping is done with parentheses `()`. In this regex, two main groups capture:
+1. `([a-z0-9_\.-]+)`: Username
+2. `([\da-z\.-]+)`: Domain
+3. `([a-z\.]{2,6})`: TLD
+
+These captured groups can be useful for extracting specific parts of the email.
+
 ### Bracket Expressions
+Bracket expressions define sets of characters. In this regex:
+- `[a-z0-9_\.-]`: Matches lowercase letters, digits, underscores, dots, or hyphens in the username.
+- `[\da-z\.-]`: Matches digits, lowercase letters, dots, or hyphens in the domain.
 
 ### Greedy and Lazy Match
+The quantifiers in this regex (`+` and `{2,6}`) are greedy, matching as much as possible.
 
 ### Boundaries
+The `^` and `$` anchors ensure the regex matches the entire string.
 
 ### Back-references
+No back-references are used in this regex.
 
 ### Look-ahead and Look-behind
+Look-ahead (`(?=...)`) and look-behind (`(?<=...)`) assertions are not present in this regex.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+ Written by  Alejandro Larios, Reach out on my github profile [cidherp2](https://github.com/cidherp2) for more exciting projects and contributions!
